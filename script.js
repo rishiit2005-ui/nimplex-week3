@@ -1,4 +1,3 @@
-console.log("game ready");
 let youScore=0;
 let computerScore=0;
 
@@ -39,6 +38,9 @@ function play(you) {
 
     let computer = computerPick();
     let winner = whoWins(you, computer);
+    const result = document.querySelector("#result");
+
+    result.classList.remove("win", "lose", "tie");
 
 
     if (winner === "you") {
@@ -46,16 +48,19 @@ function play(you) {
 
         document.querySelector("#result").textContent =
             `You win! ${you} beats ${computer}.`;
+            result.classList.add("win");
     }
     else if (winner === "computer") {
         computerScore++;
 
         document.querySelector("#result").textContent =
             `Computer wins! ${computer} beats ${you}.`;
+            result.classList.add("lose");
     }
     else {
         document.querySelector("#result").textContent =
             "It's a tie!";
+             result.classList.add("tie");
     }
 
     
@@ -66,10 +71,18 @@ function play(you) {
     if (youScore === 3) {
         document.querySelector("#result").textContent =
             "You win the match!";
+             result.classList.remove("win");
+        result.classList.add("win");
+        setTimeout(()=>{alert("congratulations you win!");},500);
+        
     }
     else if (computerScore === 3) {
         document.querySelector("#result").textContent =
             "Computer wins the match!";
+
+        result.classList.remove("lose");
+        result.classList.add("lose");
+         setTimeout(()=>{alert("better luck next time!");},500);
     }
 }
 
@@ -83,4 +96,16 @@ paper.addEventListener("click", function () {
 
 scissor.addEventListener("click", function () {
     play("scissor");
+});
+reset.addEventListener("click", function () {
+
+    youScore = 0;
+    computerScore = 0;
+
+    document.querySelector("#score").textContent =
+        "You 0 - 0 Computer";
+
+    document.querySelector("#result").textContent = "";
+
+    document.querySelector("#result").classList.remove("win","lose","tie");
 });

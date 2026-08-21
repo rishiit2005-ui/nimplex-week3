@@ -1,11 +1,114 @@
-.btn{
-   display: flex;
-   justify-content: center;
-   gap: 16px;
+* {
+    box-sizing: border-box;
 }
-button{
-    padding: 13px 20px;
-    font-size: 16px;
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f19a9a;
+    margin: 0;
+    
+}
+
+.game {
+    background-color: rgb(214, 217, 217);
+    margin-left: 70vh;
+    margin-top:2vw;
+    width: 500px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+h1{
+    color: rgb(167, 11, 107);
+}
+
+
+#score {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.buttons button,
+#reset {
+    padding: 12px 20px;
+    border-radius: 8px;
     cursor: pointer;
-    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.5s;
+}
+
+.buttons button {
+    background-color: #a9eaf8;
+}
+
+.buttons button:hover {
+    background-color: #282428;
+    color: white;
+    transform: scale(1.05);
+}
+
+
+#result {
+    font-size: 20px;
+    font-weight: bold;
+    min-height: 30px;
+    margin: 25px 0;
+}
+
+.win {
+    color: green;
+}
+
+.lose {
+    color: red;
+}
+
+.tie {
+    color: rgb(15, 10, 78);
+}
+
+
+
+#reset {
+    background-color: #333;
+    color: white;
+}
+
+#reset:hover {
+    background-color: #555;
+
+    transform: scale(1.05);
+}
+
+
+
+@media (max-width: 600px) {
+
+    .game {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .buttons button {
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
 }
